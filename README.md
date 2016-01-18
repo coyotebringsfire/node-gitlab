@@ -68,6 +68,18 @@ gitlab.projects.all(function(projects) {
     console.log("#" + projects[i].id + ": " + projects[i].name + ", path: " + projects[i].path + ", default_branch: " + projects[i].default_branch + ", private: " + projects[i]["private"] + ", owner: " + projects[i].owner.name + " (" + projects[i].owner.email + "), date: " + projects[i].created_at);
   }
 });
+
+// getting all builds for a given project
+gitlab.projects.getBuilds(1, function(builds) {
+  for (var i = 0; i < builds.length; i++) {
+    console.log("#" + builds[i].commit.id + ": " + builds[i].commit.title;
+  }
+});
+
+// getting specific build for a given project
+gitlab.projects.getBuild(1, 1, function(build) {
+  console.log("#" + build.commit.id + ": " + build.commit.title;
+});
 ```
 
 See [Examples directory](https://github.com/node-gitlab/node-gitlab/tree/master/examples) for more examples
@@ -111,6 +123,7 @@ Contributors
 - [Ryan Southern](https://github.com/ryansouthern)
 - [Zhongyi Tong](https://github.com/geeeeeeeeek)
 - [mrawdon](https://github.com/mrawdon)
+- [John Davis] (https://github.com/coyotebringsfire)
 
 License
 -------

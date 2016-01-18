@@ -77,6 +77,8 @@ describe "Projects", ->
 
       projects.all()
 
+      getStub.restore()
+
       expect(getStub).to.have.been.calledThrice
 
   describe "create()", ->
@@ -87,3 +89,23 @@ describe "Projects", ->
 
       postStub.restore()
       expect(postStub).to.have.been.called
+
+  describe "getBuild()", ->
+    it "should use GET verb", () ->
+      getStub = sinon.stub projects, "get"
+
+      projects.getBuild 1, 1, () ->
+
+
+      getStub.restore()
+      expect(getStub).to.have.been.called
+
+  describe "getBuilds()", ->
+    it "should use GET verb", () ->
+      getStub = sinon.stub projects, "get"
+
+      projects.getBuilds 1, () ->
+
+
+      getStub.restore()
+      expect(getStub).to.have.been.called
