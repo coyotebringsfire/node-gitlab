@@ -123,6 +123,7 @@ Contributors
 - [Ryan Southern](https://github.com/ryansouthern)
 - [Zhongyi Tong](https://github.com/geeeeeeeeek)
 - [mrawdon](https://github.com/mrawdon)
+- [John Davis] (https://github.com/coyotebringsfire)
 
 License
 -------
