@@ -89,4 +89,19 @@ class Projects extends BaseModel
     @debug "Projects::search()"
     @get "projects/search/#{projectName}", params, (data) => fn data if fn
 
+  getBuild: (projectId, buildId, fn = null) =>
+    @debug "ProjectBuilds::builds"
+
+    if 'function' is typeof buildId
+      fn = buildId
+      buildId = null
+
+    if buildId == null
+      @get "projects/#{Utils.parseProjectId projectId}/builds", {}, fn
+    else
+      @get "projects/#{Utils.parseProjectId projectId}/builds/#{Utils.parseBuildId buildId}", {}, fn
+
+  getBuilds: () =>
+    this.getBuild arguments[0], arguments[1]
+
 module.exports = (client) -> new Projects client
